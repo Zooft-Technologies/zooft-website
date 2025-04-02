@@ -1,5 +1,5 @@
 {
-  "name": "zooft-backend",
+  "name": "zooft-website-backend",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -35,6 +35,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "efad506e-db02-49d7-966d-88a25b1c6bef"
+    "uuid": "57786af5-ea8b-4ffd-822f-2163bd7759fb"
   }
 }
