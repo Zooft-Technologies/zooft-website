@@ -31,8 +31,8 @@ const services = [
   },
   {
     icon: <Layers className="h-8 w-8 text-zooft-primary" />,
-    title: "IT Consulting",
-    description: "Strategic guidance to help you navigate the complex technology landscape."
+    title: "AI agent Development",
+    description: "Innovative AI agents to automate processes and enhance customer interactions."
   }
 ];
 

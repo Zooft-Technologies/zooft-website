@@ -33,7 +33,9 @@ const Navbar = () => {
             Contact
           </a>
           <Button className="bg-zooft-primary hover:bg-zooft-accent text-white">
-            Get Started
+            <a href="#contact">
+              Get Started
+            </a>
           </Button>
         </nav>
 
@@ -79,7 +81,9 @@ const Navbar = () => {
               Contact
             </a>
             <Button className="bg-zooft-primary hover:bg-zooft-accent text-white w-full">
-              Get Started
+              <a href="#contact">
+                Get Started
+              </a>
             </Button>
           </div>
         </div>

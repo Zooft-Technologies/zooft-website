@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 const AboutSection = () => {
   const benefits = [
-    "10+ years of industry experience",
+    "25+ projects sucessfully implemented",
     "Expert team of certified professionals",
     "Cutting-edge technology solutions",
     "Customer-centric approach",

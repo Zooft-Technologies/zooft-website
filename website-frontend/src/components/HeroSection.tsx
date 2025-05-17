@@ -18,10 +18,16 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-zooft-primary hover:bg-zooft-dark text-white px-8 py-6 text-lg">
-                Our Services <ArrowRight className="ml-2" size={18} />
+                <a href="#services" className="flex items-center">
+                  Our Services <ArrowRight className="ml-2" size={18} />
+                </a>
               </Button>
-              <Button variant="outline" className="border-zooft-primary text-zooft-primary hover:bg-zooft-light px-8 py-6 text-lg">
-                Contact Us
+              <Button 
+                variant="outline" 
+                className="border-zooft-primary text-zooft-primary hover:bg-zooft-light px-8 py-6 text-lg">
+                <a href="#contact">
+                  Contact Us
+                </a>
               </Button>
             </div>
           </div>
