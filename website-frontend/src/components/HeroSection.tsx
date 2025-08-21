@@ -1,9 +1,38 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isSliding, setIsSliding] = useState(false);
+  const [slideDirection, setSlideDirection] = useState('left');
+  
+  const projectImages = [
+    "/images/projects/kubwa.jpg",
+    "/images/projects/wardrobe.jpg"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsSliding(true);
+      setSlideDirection('left'); // Always slide left when moving forward
+      
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => {
+          const nextIndex = (prevIndex + 1) % projectImages.length;
+          // If we're going from last to first, slide right
+          if (prevIndex === projectImages.length - 1 && nextIndex === 0) {
+            setSlideDirection('right');
+          }
+          return nextIndex;
+        });
+        setIsSliding(false);
+      }, 100); // Half of transition duration
+    }, 5000); // Change image every second
+
+    return () => clearInterval(interval);
+  }, [projectImages.length]);
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24 hexagon-bg">
       <div className="container mx-auto px-4">
@@ -32,12 +61,18 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-slide-in">
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary to-zooft-secondary opacity-20 rounded-3xl transform -rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=600" 
+                src={projectImages[currentImageIndex]}
                 alt="Tech Solutions" 
-                className="rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 z-10 relative"
+                className={`rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 z-10 relative ${
+                  isSliding 
+                    ? slideDirection === 'left' 
+                      ? 'translate-x-full opacity-0' 
+                      : '-translate-x-full opacity-0'
+                    : 'translate-x-0 opacity-100'
+                }`}
               />
               <div className="absolute -bottom-6 -right-6 p-4 bg-white rounded-xl shadow-lg z-20">
                 <div className="flex items-center space-x-2">
