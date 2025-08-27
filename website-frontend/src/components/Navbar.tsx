@@ -2,40 +2,59 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActivePage = (path: string) => {
+    return location.pathname === path;
+  };
+
+  const linkClass = (path: string) => 
+    `transition-colors ${
+      isActivePage(path) 
+        ? "text-zooft-primary font-semibold" 
+        : "text-gray-700 hover:text-zooft-primary"
+    }`;
 
   return (
     <header className="fixed w-full top-0 bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <div className="mr-2">
             <ZooftLogo />
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-zooft-primary to-zooft-secondary text-transparent bg-clip-text">
-            Zooft <span className="text-blue-800">Technologies</span>
+            Zooft <span className="text-black">Technologies</span>
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#services" className="text-gray-700 hover:text-zooft-primary transition-colors">
+          <Link to="/" className={linkClass("/")}>
+            Home
+          </Link>
+          <Link to="/about" className={linkClass("/about")}>
+            About
+          </Link>
+          <Link to="/services" className={linkClass("/services")}>
             Services
-          </a>
-          <a href="#about" className="text-gray-700 hover:text-zooft-primary transition-colors">
-            About Us
-          </a>
-          <a href="#solutions" className="text-gray-700 hover:text-zooft-primary transition-colors">
-            Solutions
-          </a>
-          <a href="#contact" className="text-gray-700 hover:text-zooft-primary transition-colors">
+          </Link>
+          <Link to="/projects" className={linkClass("/projects")}>
+            Projects
+          </Link>
+          <Link to="/blog" className={linkClass("/blog")}>
+            Blog
+          </Link>
+          <Link to="/contact" className={linkClass("/contact")}>
             Contact
-          </a>
+          </Link>
           <Button className="bg-zooft-primary hover:bg-zooft-accent text-white">
-            <a href="#contact">
+            <Link to="/contact">
               Get Started
-            </a>
+            </Link>
           </Button>
         </nav>
 
@@ -52,38 +71,52 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <a 
-              href="#services" 
-              className="text-gray-700 hover:text-zooft-primary transition-colors"
+            <Link 
+              to="/" 
+              className={linkClass("/")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/about" 
+              className={linkClass("/about")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link 
+              to="/services" 
+              className={linkClass("/services")}
               onClick={() => setIsMenuOpen(false)}
             >
               Services
-            </a>
-            <a 
-              href="#about" 
-              className="text-gray-700 hover:text-zooft-primary transition-colors"
+            </Link>
+            <Link 
+              to="/projects" 
+              className={linkClass("/projects")}
               onClick={() => setIsMenuOpen(false)}
             >
-              About Us
-            </a>
-            <a 
-              href="#solutions" 
-              className="text-gray-700 hover:text-zooft-primary transition-colors"
+              Projects
+            </Link>
+            <Link 
+              to="/blog" 
+              className={linkClass("/blog")}
               onClick={() => setIsMenuOpen(false)}
             >
-              Solutions
-            </a>
-            <a 
-              href="#contact" 
-              className="text-gray-700 hover:text-zooft-primary transition-colors"
+              Blog
+            </Link>
+            <Link 
+              to="/contact" 
+              className={linkClass("/contact")}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </a>
+            </Link>
             <Button className="bg-zooft-primary hover:bg-zooft-accent text-white w-full">
-              <a href="#contact">
+              <Link to="/contact">
                 Get Started
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

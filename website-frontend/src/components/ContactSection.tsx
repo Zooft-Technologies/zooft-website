@@ -104,7 +104,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Location</p>
-                    <p className="font-medium">Kampala, Uganda</p>
+                    <p className="font-medium">Nakawa-Kampala, Uganda</p>
                   </div>
                 </div>
                 
