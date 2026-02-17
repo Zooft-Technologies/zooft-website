@@ -1,7 +1,6 @@
-
 import React from "react";
 import { Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { companyInfo } from "@/data/content";
 
 const TikTokIcon = () => (
@@ -84,22 +83,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
+                <Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link>
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link>
               </li>
               <li>
-                <Link to="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link>
+                <Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link>
+                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -108,19 +107,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Custom Software Development</Link>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Custom Software Development</Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Web Application Development</Link>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Web Application Development</Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Cloud Solutions</Link>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Cloud Solutions</Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Mobile App Development</Link>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Mobile App Development</Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">Digital Marketing</Link>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">Digital Marketing</Link>
               </li>
             </ul>
           </div>
