@@ -101,11 +101,11 @@ const HeroSection = () => {
             <div className="relative w-full max-w-lg">
               <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary/5 to-zooft-secondary/5 rounded-3xl transform -rotate-3" />
 
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 aspect-[4/3]">
+              <div className="grid overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <AnimatePresence initial={false}>
                   <motion.div
                     key={currentIndex}
-                    className="absolute inset-0"
+                    className="[grid-area:1/1]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -114,10 +114,11 @@ const HeroSection = () => {
                     <ImageWithFallback
                       src={projectImages[currentIndex]}
                       alt="Zooft Technologies"
-                      fill
+                      width={800}
+                      height={600}
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
-                      className="object-cover"
+                      className="w-full h-auto block"
                     />
                   </motion.div>
                 </AnimatePresence>
