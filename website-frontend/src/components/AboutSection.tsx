@@ -1,6 +1,6 @@
-
 import React from "react";
 import { Check } from "lucide-react";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const AboutSection = () => {
   const benefits = [
@@ -19,9 +19,12 @@ const AboutSection = () => {
           <div className="w-full lg:w-1/2">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-zooft-primary to-zooft-secondary opacity-10 rounded-3xl transform translate-x-4 translate-y-4"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800&h=600" 
-                alt="Zooft Technologies Team" 
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800&h=600"
+                alt="Zooft Technologies Team"
+                width={800}
+                height={600}
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="rounded-3xl shadow-xl relative z-10"
               />
               <div className="absolute -top-6 -left-6 p-5 bg-white rounded-xl shadow-lg">
