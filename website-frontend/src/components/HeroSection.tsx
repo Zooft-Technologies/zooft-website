@@ -9,9 +9,10 @@ import Link from "next/link";
 
 const projectImages = [
   "/images/projects/kubwa.jpg",
-  "/images/team/clintonie.jpg",
+  "/images/projects/hospital-system.jpg",
+  "/images/projects/medical-dashboard.jpg",
   "/images/projects/wardrobe.jpg",
-  "/images/team/gibson.jpg",
+  "/images/projects/law-system-visual.jpg",
 ];
 
 const fadeUp = {
@@ -37,7 +38,7 @@ const HeroSection = () => {
 
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24 hexagon-bg overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Text Content */}
           <div className="w-full lg:w-1/2">
@@ -101,11 +102,11 @@ const HeroSection = () => {
             <div className="relative w-full max-w-lg">
               <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary/5 to-zooft-secondary/5 rounded-3xl transform -rotate-3" />
 
-              <div className="grid overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 aspect-video">
                 <AnimatePresence initial={false}>
                   <motion.div
                     key={currentIndex}
-                    className="[grid-area:1/1]"
+                    className="absolute inset-0"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -114,11 +115,10 @@ const HeroSection = () => {
                     <ImageWithFallback
                       src={projectImages[currentIndex]}
                       alt="Zooft Technologies"
-                      width={800}
-                      height={600}
+                      fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
-                      className="w-full h-auto block"
+                      className="object-cover"
                     />
                   </motion.div>
                 </AnimatePresence>

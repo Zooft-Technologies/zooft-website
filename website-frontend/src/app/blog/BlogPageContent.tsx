@@ -31,7 +31,7 @@ export default function BlogPageContent() {
     <>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-zooft-primary to-zooft-dark text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Our <span className="text-zooft-light">Blog</span>
           </h1>
@@ -43,7 +43,7 @@ export default function BlogPageContent() {
 
       {/* Category Filter */}
       <section className="py-8 bg-gray-50 border-b">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
@@ -64,7 +64,7 @@ export default function BlogPageContent() {
 
       {/* Blog Posts Grid */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <Card
@@ -119,7 +119,7 @@ export default function BlogPageContent() {
 
       {/* Featured Topics */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Featured <span className="text-zooft-primary">Topics</span>
@@ -159,7 +159,7 @@ export default function BlogPageContent() {
 
       {/* Newsletter Signup */}
       <section className="py-16 md:py-24 bg-zooft-primary text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter for the latest insights and technology

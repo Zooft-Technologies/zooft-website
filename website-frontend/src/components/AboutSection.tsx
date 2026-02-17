@@ -14,7 +14,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-16 md:py-24">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="w-full lg:w-1/2">
             <div className="relative">
