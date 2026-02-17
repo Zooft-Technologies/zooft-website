@@ -1,15 +1,17 @@
+"use client";
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   const isActivePage = (path: string) => {
-    return location.pathname === path;
+    return pathname === path;
   };
 
   const linkClass = (path: string) => 
@@ -22,7 +24,7 @@ const Navbar = () => {
   return (
     <header className="fixed w-full top-0 bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <div className="mr-2">
             <ZooftLogo />
           </div>
@@ -33,26 +35,26 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link to="/" className={linkClass("/")}>
+          <Link href="/" className={linkClass("/")}>
             Home
           </Link>
-          <Link to="/about" className={linkClass("/about")}>
+          <Link href="/about" className={linkClass("/about")}>
             About
           </Link>
-          <Link to="/services" className={linkClass("/services")}>
+          <Link href="/services" className={linkClass("/services")}>
             Services
           </Link>
-          <Link to="/projects" className={linkClass("/projects")}>
+          <Link href="/projects" className={linkClass("/projects")}>
             Projects
           </Link>
-          <Link to="/blog" className={linkClass("/blog")}>
+          <Link href="/blog" className={linkClass("/blog")}>
             Blog
           </Link>
-          <Link to="/contact" className={linkClass("/contact")}>
+          <Link href="/contact" className={linkClass("/contact")}>
             Contact
           </Link>
-          <Button className="bg-zooft-primary hover:bg-zooft-accent text-white">
-            <Link to="/contact">
+          <Button className="bg-zooft-primary hover:bg-zooft-accent text-white" asChild>
+            <Link href="/contact">
               Get Started
             </Link>
           </Button>
@@ -71,50 +73,50 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link 
-              to="/" 
+            <Link
+              href="/" 
               className={linkClass("/")}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              href="/about" 
               className={linkClass("/about")}
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
-            <Link 
-              to="/services" 
+            <Link
+              href="/services" 
               className={linkClass("/services")}
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
-            <Link 
-              to="/projects" 
+            <Link
+              href="/projects" 
               className={linkClass("/projects")}
               onClick={() => setIsMenuOpen(false)}
             >
               Projects
             </Link>
-            <Link 
-              to="/blog" 
+            <Link
+              href="/blog" 
               className={linkClass("/blog")}
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              href="/contact" 
               className={linkClass("/contact")}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
-            <Button className="bg-zooft-primary hover:bg-zooft-accent text-white w-full">
-              <Link to="/contact">
+            <Button className="bg-zooft-primary hover:bg-zooft-accent text-white w-full" asChild>
+              <Link href="/contact">
                 Get Started
               </Link>
             </Button>
