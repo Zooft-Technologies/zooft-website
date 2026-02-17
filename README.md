@@ -1,83 +1,119 @@
 # Zooft Technologies Website
 
-Welcome to the **Zooft Technologies Website** repository!  This project contains the **official website** of Zooft Technologies, built with modern web technologies for high performance, scalability, and ease of maintenance.
+The official website for **Zooft Technologies** — a technology company based in Nakawa-Kampala, Uganda, providing custom software development, cybersecurity, cloud infrastructure, and IT consulting services across East Africa.
 
-## 📌 Project Overview
-The website consists of:
-- **Frontend**: Built with Next.js, utilizing TypeScript, Turbopack, ESLint, and Tailwind CSS for a highly optimized and responsive UI.
-- **Backend**: Powered by Strapi, providing a headless CMS for content management and API generation.
+**Live site:** [zoofttechnologies.com](https://zoofttechnologies.com)
 
-## 🛠️ Technologies Used
-### **Frontend**
-- [Next.js](https://nextjs.org/) (with Turbopack)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [ESLint](https://eslint.org/)
+## Tech Stack
 
-### **Backend**
-- [Strapi](https://strapi.io/) (Headless CMS)
-- Node.js & Express (Under Strapi)
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router, SSR/SSG)
+- **Language:** TypeScript
+- **UI Library:** React 18
+- **Styling:** Tailwind CSS 3.4
+- **Components:** [shadcn/ui](https://ui.shadcn.com/) (Radix UI primitives)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Deployment:** Firebase App Hosting
 
-### **Other Tools**
-- Git & GitHub for version control
-- Vercel for frontend deployment
-- Strapi Cloud/Self-hosted for backend deployment
+## Project Structure
 
-## 🚀 Getting Started
-Follow these steps to set up the project locally.
+```
+website-frontend/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── layout.tsx          # Root layout (Navbar, Footer, global metadata)
+│   │   ├── page.tsx            # Homepage
+│   │   ├── globals.css         # Global styles & Tailwind
+│   │   ├── sitemap.ts          # Dynamic sitemap generation
+│   │   ├── robots.ts           # Dynamic robots.txt
+│   │   ├── not-found.tsx       # 404 page
+│   │   ├── about/page.tsx
+│   │   ├── services/page.tsx
+│   │   ├── projects/page.tsx
+│   │   ├── blog/page.tsx
+│   │   ├── contact/page.tsx
+│   │   └── api/
+│   │       └── send-email/route.ts   # Contact form API endpoint
+│   ├── components/             # Reusable components
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── ServicesSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── ContactSection.tsx
+│   │   └── ui/                 # shadcn/ui components
+│   ├── data/                   # Static content data
+│   ├── hooks/                  # Custom React hooks
+│   ├── lib/                    # Utility functions
+│   ├── services/               # API service layer
+│   ├── types/                  # TypeScript type definitions
+│   └── utils/                  # Validation and helpers
+├── public/                     # Static assets (images, fonts)
+├── next.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── firebase.json               # Firebase hosting config
+```
 
-### **1️⃣ Clone the Repository**
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 18.17 or later
+- npm (comes with Node.js)
+
+### Installation
+
 ```bash
- git clone https://github.com/Zooft-Technologies/zooft-website.git
- cd zooft-website
+cd website-frontend
+npm install
 ```
 
-### **2️⃣ Install Dependencies**
-#### **Frontend**
+### Development
+
 ```bash
- cd zooft-website-frontend
- npm install
+npm run dev
 ```
-#### **Backend**
+
+Opens the development server at [http://localhost:3000](http://localhost:3000).
+
+### Production Build
+
 ```bash
- cd ../zooft-website-backend
- npm install
+npm run build
+npm start
 ```
 
-### **3️⃣ Start the Development Servers**
-#### **Frontend**
+### Linting
+
 ```bash
- cd ../zooft-website-frontend
- npm run dev
+npm run lint
 ```
-Runs on: `http://localhost:3000`
 
-#### **Backend**
+## SEO
+
+Every page exports server-side metadata using the Next.js Metadata API, including:
+
+- Page-specific titles and descriptions
+- Open Graph tags for social sharing
+- Twitter card metadata
+- Structured `robots` directives
+- Dynamic `sitemap.xml` and `robots.txt` generated at build time
+
+All pages are server-rendered (SSR/SSG), so search engine crawlers receive fully rendered HTML.
+
+## Deployment
+
+The site is deployed via **Firebase App Hosting**, which auto-detects Next.js and handles SSR. The hosting config is in `firebase.json` with the backend region set to `europe-west1`.
+
 ```bash
- cd ../zooft-website-backend
- npm run develop
-```
-Runs on: `http://localhost:1337/admin`
-
-## 📂 Project Structure
-```
-zooft-website/  (🔴 Main Git Repository)
-├── zooft-website-frontend/  (✅ Next.js Frontend)
-├── zooft-website-backend/   (✅ Strapi Backend)
+firebase deploy
 ```
 
-## 🌎 Deployment
-- **Frontend:** Deployed on [Vercel](https://vercel.com/)
-- **Backend:** Deployed on Strapi Cloud / Self-hosted
+## Scripts
 
-## 🤝 Contributing
-Please follow these steps:
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -m "Added new feature"`).
-4. Push to the branch (`git push origin feature-name`).
-5. Create a Pull Request.
-
-## 📞 Contact
-For any inquiries, reach out to [Zooft Technologies](mailto:zooft@gmail.com) or visit our website.
-
+| Command         | Description                        |
+|-----------------|------------------------------------|
+| `npm run dev`   | Start development server           |
+| `npm run build` | Create optimized production build  |
+| `npm start`     | Start production server            |
+| `npm run lint`  | Run Next.js linting                |
