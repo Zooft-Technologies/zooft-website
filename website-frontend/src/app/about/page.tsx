@@ -8,11 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { companyInfo, teamMembers } from "@/data/content";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Zooft Technologies - our mission, vision, values, and the passionate team behind innovative technology solutions in Nakawa-Kampala, Uganda.",
+    "Learn about Zooft Technologies - our mission, vision, values, and the passionate team behind innovative technology solutions",
   openGraph: {
     title: "About Us | Zooft Technologies",
     description:
@@ -161,11 +162,13 @@ export default function AboutPage() {
                 className="text-center hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
-                  <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
-                    <img
+                  <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden relative">
+                    <ImageWithFallback
                       src={member.imageUrl}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="128px"
+                      className="object-cover"
                     />
                   </div>
                   <CardTitle className="text-xl text-zooft-primary">

@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { projects } from "@/data/content";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 export const metadata: Metadata = {
   title: "Our Projects",
@@ -46,11 +47,13 @@ export default function ProjectsPage() {
                 key={project.id}
                 className="hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
-                  <img
+                <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden relative">
+                  <ImageWithFallback
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
 

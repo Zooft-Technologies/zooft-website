@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -64,13 +65,17 @@ const HeroSection = () => {
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-slide-in">
             <div className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary to-zooft-secondary opacity-20 rounded-3xl transform -rotate-3"></div>
-              <img 
+              <ImageWithFallback
                 src={projectImages[currentImageIndex]}
-                alt="Tech Solutions" 
+                alt="Tech Solutions"
+                width={800}
+                height={600}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
                 className={`rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 z-10 relative ${
-                  isSliding 
-                    ? slideDirection === 'left' 
-                      ? 'translate-x-full opacity-0' 
+                  isSliding
+                    ? slideDirection === 'left'
+                      ? 'translate-x-full opacity-0'
                       : '-translate-x-full opacity-0'
                     : 'translate-x-0 opacity-100'
                 }`}

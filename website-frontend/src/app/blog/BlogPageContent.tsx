@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { blogPosts } from "@/data/content";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 export default function BlogPageContent() {
   const categories = [
@@ -70,11 +71,13 @@ export default function BlogPageContent() {
                 key={post.id}
                 className="hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
-                  <img
+                <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden relative">
+                  <ImageWithFallback
                     src={post.imageUrl}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
 
