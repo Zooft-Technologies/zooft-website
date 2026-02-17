@@ -9,7 +9,9 @@ import Link from "next/link";
 
 const projectImages = [
   "/images/projects/kubwa.jpg",
+  "/images/team/clintonie.jpg",
   "/images/projects/wardrobe.jpg",
+  "/images/team/gibson.jpg",
 ];
 
 const fadeUp = {
@@ -29,7 +31,7 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(nextImage, 5000);
+    const interval = setInterval(nextImage, 4000);
     return () => clearInterval(interval);
   }, [nextImage]);
 
@@ -96,26 +98,26 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary to-zooft-secondary opacity-20 rounded-3xl transform -rotate-3" />
+            <div className="relative w-full max-w-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary/5 to-zooft-secondary/5 rounded-3xl transform -rotate-3" />
 
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <AnimatePresence mode="wait">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 aspect-[4/3]">
+                <AnimatePresence initial={false}>
                   <motion.div
                     key={currentIndex}
-                    initial={{ opacity: 0, scale: 1.08 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" as const }}
                   >
                     <ImageWithFallback
                       src={projectImages[currentIndex]}
-                      alt="Tech Solutions"
-                      width={800}
-                      height={600}
+                      alt="Zooft Technologies"
+                      fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
-                      className="w-full h-auto"
+                      className="object-cover"
                     />
                   </motion.div>
                 </AnimatePresence>
