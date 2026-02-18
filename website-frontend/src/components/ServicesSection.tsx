@@ -11,10 +11,10 @@ import {
 import {
   Code,
   Globe,
-  CloudCog,
   DatabaseZap,
   Smartphone,
   MessagesSquare,
+  GraduationCap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -47,12 +47,6 @@ const services: Service[] = [
       "High-performance web applications with modern architectures, responsive design, and seamless user experiences that keep your customers engaged.",
   },
   {
-    icon: CloudCog,
-    title: "Cloud Infrastructure",
-    description:
-      "Secure, scalable cloud environments designed for reliability — from migration strategy to ongoing infrastructure management and optimization.",
-  },
-  {
     icon: DatabaseZap,
     title: "Data Analytics & Insights",
     description:
@@ -69,6 +63,12 @@ const services: Service[] = [
     title: "IT Consultancy",
     description:
       "Strategic technology guidance to align your IT investments with business goals — from system architecture reviews to digital transformation roadmaps.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Software Development Training",
+    description:
+      "Hands-on training programs for tech students and enthusiasts — from beginner fundamentals to advanced development practices that prepare the next generation of builders.",
   },
 ];
 
@@ -95,9 +95,9 @@ const ServicesSection = () => {
             Our <span className="gradient-text">Services</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            From custom-built software to mobile apps and cloud infrastructure
-            — we deliver the technology that helps businesses scale faster and
-            operate smarter.
+            From custom-built software to mobile apps and developer training
+            — we deliver the technology and knowledge that helps businesses and
+            individuals thrive.
           </p>
         </motion.div>
 
