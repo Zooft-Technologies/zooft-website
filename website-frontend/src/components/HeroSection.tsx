@@ -60,8 +60,9 @@ const HeroSection = () => {
               animate="visible"
               custom={1}
             >
-              Zooft Technologies provides innovative tech solutions to help
-              businesses thrive in the digital era.
+              We build custom software, secure cloud infrastructure, and
+              intelligent digital systems that help businesses scale faster
+              and operate smarter.
               <span className="block mt-2 font-medium italic text-zooft-dark">
                 The better way to do it.
               </span>
