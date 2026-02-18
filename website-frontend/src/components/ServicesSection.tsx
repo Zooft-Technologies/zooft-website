@@ -115,9 +115,9 @@ const ServicesSection = () => {
                 custom={index}
                 whileHover={{ y: -4 }}
               >
-                <Card className="group h-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-zooft-primary/30 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-all duration-300 ease-out text-center">
-                  <CardHeader className="pb-3 items-center">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-zooft-primary/25 transition-shadow duration-300">
+                <Card className="group h-full bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:border-zooft-primary/30 transition-all duration-300 ease-out text-center">
+                  <CardHeader className="pt-10 pb-4 items-center">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mb-5 group-hover:shadow-lg group-hover:shadow-zooft-primary/25 transition-shadow duration-300">
                       <Icon className="h-7 w-7 text-white" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
@@ -125,7 +125,7 @@ const ServicesSection = () => {
                     </CardTitle>
                   </CardHeader>
 
-                  <CardContent>
+                  <CardContent className="pb-10">
                     <CardDescription className="text-gray-600 text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
