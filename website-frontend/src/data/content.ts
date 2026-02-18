@@ -205,17 +205,17 @@ export const projects: Project[] = [
 export const companyInfo = {
   name: 'Zooft Technologies',
   tagline: 'Innovative Technology Solutions for Modern Businesses',
-  description: 'We specialize in delivering cutting-edge technology solutions that drive business growth and digital transformation.',
+  description: 'We build secure, AI-powered software solutions — custom web and mobile apps, data analytics, IT consultancy, and developer training — that help businesses scale faster and operate smarter.',
   founded: '2025',
-  location: 'Nakawa-kampala,Uganda',
-  mission: 'To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage in the digital age.',
-  vision: 'To become the leading technology partner for businesses across Uganda and East Africa, fostering digital transformation and economic growth.',
+  location: 'Nakawa, Kampala, Uganda',
+  mission: 'To empower businesses and individuals with secure, AI-powered software solutions that drive growth, efficiency, and competitive advantage in the digital age.',
+  vision: 'To become the leading technology partner for businesses across Uganda and East Africa, fostering digital transformation and building the next generation of tech talent.',
   values: [
-    'Innovation',
-    'Integrity',
-    'Customer Focus',
-    'Excellence',
-    'Collaboration'
+    { title: 'Innovation', description: 'We embrace emerging technologies and creative problem-solving to deliver solutions that keep our clients ahead of the curve.' },
+    { title: 'Integrity', description: 'We build trust through transparency, honest communication, and doing the right thing — even when no one is watching.' },
+    { title: 'Customer Focus', description: 'Every line of code we write starts with understanding your business goals, challenges, and the people who use your products.' },
+    { title: 'Excellence', description: 'We hold ourselves to the highest standards of quality — from clean, secure code to pixel-perfect interfaces and reliable delivery.' },
+    { title: 'Collaboration', description: 'We work as an extension of your team, combining our technical expertise with your domain knowledge to build better products together.' },
   ],
   contact: {
     email: 'contact@zoofttechnologies.com',
