@@ -11,15 +11,17 @@ export const metadata: Metadata = {
     template: "%s | Zooft Technologies",
   },
   description:
-    "Zooft Technologies provides innovative technology solutions including custom software development, cybersecurity, cloud infrastructure, and IT consulting in Uganda and East Africa.",
+    "Zooft Technologies builds secure, AI-powered software solutions — custom web and mobile apps, data analytics, IT consultancy, and developer training in Uganda and East Africa.",
   keywords: [
     "Zooft Technologies",
     "software development Uganda",
-    "cybersecurity Uganda",
-    "cloud infrastructure Kampala",
-    "IT consulting East Africa",
-    "web development Uganda",
+    "custom software Kampala",
+    "web application development Uganda",
     "mobile app development Kampala",
+    "IT consulting East Africa",
+    "data analytics Uganda",
+    "software development training Uganda",
+    "AI-powered applications Kampala",
     "digital transformation Uganda",
   ],
   authors: [{ name: "Zooft Technologies" }],
@@ -31,14 +33,14 @@ export const metadata: Metadata = {
     siteName: "Zooft Technologies",
     title: "Zooft Technologies | The Better Way to Do It",
     description:
-      "Innovative technology solutions for modern businesses in Uganda and East Africa.",
+      "Secure, AI-powered software solutions for modern businesses in Uganda and East Africa.",
   },
   twitter: {
     card: "summary_large_image",
     site: "@Zoofttech",
     title: "Zooft Technologies",
     description:
-      "Innovative technology solutions for modern businesses in Uganda and East Africa.",
+      "Secure, AI-powered software solutions for modern businesses in Uganda and East Africa.",
   },
   robots: {
     index: true,

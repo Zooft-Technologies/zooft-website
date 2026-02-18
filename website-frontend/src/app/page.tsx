@@ -23,8 +23,8 @@ export default function HomePage() {
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
             Partner with Zooft Technologies and experience the difference our
             innovative solutions can make for your business. From custom software
-            development to cybersecurity, we have the expertise to help you
-            succeed.
+            development to AI-powered applications, we have the expertise to
+            help you succeed.
           </p>
           <a
             href="#contact"
