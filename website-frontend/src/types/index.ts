@@ -28,13 +28,28 @@ export interface NewsletterData {
 }
 
 // Service Types
+export interface ServiceTestimonial {
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+}
+
+export interface ServiceFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface Service {
   id: string;
   title: string;
   description: string;
+  longDescription: string;
   icon: string;
   features: string[];
   benefits: string[];
+  testimonial: ServiceTestimonial;
+  faqs: ServiceFAQ[];
 }
 
 // Blog Post Types
