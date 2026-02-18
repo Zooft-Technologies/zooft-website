@@ -13,8 +13,8 @@ import {
   Globe,
   CloudCog,
   DatabaseZap,
-  ShieldCheck,
-  BrainCircuit,
+  Smartphone,
+  MessagesSquare,
   type LucideIcon,
 } from "lucide-react";
 
@@ -59,16 +59,16 @@ const services: Service[] = [
       "Transform raw data into clear, actionable intelligence with dashboards, reporting pipelines, and analytics systems built for decision-makers.",
   },
   {
-    icon: ShieldCheck,
-    title: "Cybersecurity Solutions",
+    icon: Smartphone,
+    title: "Mobile App Development",
     description:
-      "Proactive security strategies including threat monitoring, vulnerability assessments, and compliance frameworks that protect what matters most.",
+      "Native and cross-platform mobile applications with intuitive interfaces, offline capabilities, and seamless performance across iOS and Android.",
   },
   {
-    icon: BrainCircuit,
-    title: "AI Agent Development",
+    icon: MessagesSquare,
+    title: "IT Consultancy",
     description:
-      "Intelligent AI agents and automation systems that streamline operations, enhance customer interactions, and unlock new capabilities.",
+      "Strategic technology guidance to align your IT investments with business goals — from system architecture reviews to digital transformation roadmaps.",
   },
 ];
 
@@ -76,7 +76,7 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-20 md:py-28 bg-gradient-to-b from-zooft-light/40 via-white to-zooft-light/20 hexagon-bg overflow-hidden"
+      className="py-20 md:py-28 bg-gradient-to-b from-zooft-light/40 via-white to-white hexagon-bg overflow-hidden"
     >
       <div className="container mx-auto">
         {/* Section Header */}
@@ -95,9 +95,9 @@ const ServicesSection = () => {
             Our <span className="gradient-text">Services</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            From custom-built software to secure cloud infrastructure and
-            intelligent AI systems — we deliver the technology that helps
-            businesses scale faster and operate smarter.
+            From custom-built software to mobile apps and cloud infrastructure
+            — we deliver the technology that helps businesses scale faster and
+            operate smarter.
           </p>
         </motion.div>
 
