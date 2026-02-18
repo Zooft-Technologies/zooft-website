@@ -1,142 +1,295 @@
+"use client";
 
-import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Globe } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Globe,
+  MessageCircle,
+  Clock,
+  Send,
+} from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const, delay: i * 0.12 },
+  }),
+};
+
+const contactDetails = [
+  {
+    icon: Phone,
+    label: "Call Us",
+    value: "+256 773 252 651",
+    secondaryValue: "+256 709 105 749",
+    href: "tel:+256773252651",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "+256 773 252 651",
+    href: "https://wa.me/256773252651",
+    external: true,
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "contact@zoofttechnologies.com",
+    href: "mailto:contact@zoofttechnologies.com",
+  },
+  {
+    icon: Globe,
+    label: "Website",
+    value: "www.zoofttechnologies.com",
+    href: "https://www.zoofttechnologies.com",
+    external: true,
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Nakawa, Kampala, Uganda",
+  },
+];
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-16 md:py-24 bg-gray-50 hexagon-bg">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="py-20 md:py-28 bg-gradient-to-b from-gray-50 via-gray-50 to-white hexagon-bg overflow-hidden"
+    >
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-16"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          custom={0}
+        >
+          <span className="inline-block px-4 py-1.5 bg-zooft-primary/10 text-zooft-primary text-sm font-semibold rounded-full mb-4">
+            Contact Us
+          </span>
+          <h2
+            id="contact-heading"
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Have questions or want to discuss your project? Reach out to us today.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Have a project in mind or need expert guidance? We&apos;d love to
+            hear from you — let&apos;s build something great together.
           </p>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
-            <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+          {/* Contact Form */}
+          <motion.div
+            className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            custom={1}
+          >
+            <h3 className="text-2xl font-bold mb-2 text-gray-900">
+              Send Us a Message
+            </h3>
+            <p className="text-gray-500 mb-6">
+              Fill in the form and our team will get back to you within 24
+              hours.
+            </p>
+
+            <form className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Name
+                  <label
+                    htmlFor="contact-name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Full Name *
                   </label>
                   <Input
-                    id="name"
-                    placeholder="John Doe"
+                    id="contact-name"
+                    name="fullName"
+                    placeholder="Your full name"
                     className="w-full"
+                    required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
+                  <label
+                    htmlFor="contact-email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Email Address *
                   </label>
                   <Input
-                    id="email"
+                    id="contact-email"
+                    name="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="you@example.com"
                     className="w-full"
+                    required
                   />
                 </div>
               </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject
-                </label>
-                <Input
-                  id="subject"
-                  placeholder="How can we help you?"
-                  className="w-full"
-                />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <label
+                    htmlFor="contact-phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Phone Number
+                  </label>
+                  <Input
+                    id="contact-phone"
+                    name="phone"
+                    placeholder="+256 XXX XXX XXX"
+                    className="w-full"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="contact-subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Subject *
+                  </label>
+                  <Input
+                    id="contact-subject"
+                    name="subject"
+                    placeholder="How can we help?"
+                    className="w-full"
+                    required
+                  />
+                </div>
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
+                <label
+                  htmlFor="contact-message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Message *
                 </label>
                 <Textarea
-                  id="message"
-                  placeholder="Write your message here..."
-                  className="w-full min-h-[150px]"
+                  id="contact-message"
+                  name="message"
+                  placeholder="Tell us about your project or inquiry..."
+                  className="w-full min-h-[140px]"
+                  required
                 />
               </div>
-              
-              <Button className="w-full bg-zooft-primary hover:bg-zooft-dark text-white py-6">
+
+              <Button
+                type="submit"
+                className="w-full bg-zooft-primary hover:bg-zooft-dark text-white py-6 text-base font-semibold"
+              >
+                <Send size={18} className="mr-2" />
                 Send Message
               </Button>
             </form>
-          </div>
-          
-          <div className="flex flex-col justify-between">
-            <div className="bg-white p-8 rounded-2xl shadow-lg mb-6 border-l-4 border-zooft-primary">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-zooft-light flex items-center justify-center mr-4">
-                    <Phone className="text-zooft-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Phone Number</p>
-                    <p className="font-medium">+256077654326 / 0709105749</p>
-                  </div>
+          </motion.div>
+
+          {/* Contact Info + Business Hours */}
+          <div className="flex flex-col gap-6">
+            <motion.div
+              className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={2}
+            >
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">
+                Contact Information
+              </h3>
+              <div className="space-y-5">
+                {contactDetails.map((item) => {
+                  const Icon = item.icon;
+                  const content = (
+                    <div className="flex items-start group">
+                      <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mr-4 shrink-0">
+                        <Icon className="text-white" size={20} />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500 mb-0.5">
+                          {item.label}
+                        </p>
+                        <p className="font-medium text-gray-900 group-hover:text-zooft-primary transition-colors">
+                          {item.value}
+                        </p>
+                        {item.secondaryValue && (
+                          <p className="font-medium text-gray-900">
+                            {item.secondaryValue}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  );
+
+                  if (item.href) {
+                    return (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        {...(item.external
+                          ? {
+                              target: "_blank",
+                              rel: "noopener noreferrer",
+                            }
+                          : {})}
+                        className="block"
+                      >
+                        {content}
+                      </a>
+                    );
+                  }
+
+                  return <div key={item.label}>{content}</div>;
+                })}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-gradient-to-br from-zooft-primary via-zooft-dark to-zooft-accent p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-white"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              custom={3}
+            >
+              <div className="flex items-center mb-5">
+                <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center mr-4">
+                  <Clock className="text-white" size={20} />
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-zooft-light flex items-center justify-center mr-4">
-                    <Mail className="text-zooft-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Email Address</p>
-                    <p className="font-medium">zooftTechnologies@tech.com</p>
-                  </div>
+                <h3 className="text-2xl font-bold">Business Hours</h3>
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center py-2 border-b border-white/15">
+                  <span className="text-white/80">Monday &ndash; Friday</span>
+                  <span className="font-semibold">8:00 AM &ndash; 6:00 PM</span>
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-zooft-light flex items-center justify-center mr-4">
-                    <MapPin className="text-zooft-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Location</p>
-                    <p className="font-medium">Nakawa-Kampala, Uganda</p>
-                  </div>
+                <div className="flex justify-between items-center py-2 border-b border-white/15">
+                  <span className="text-white/80">Saturday</span>
+                  <span className="font-semibold">9:00 AM &ndash; 4:00 PM</span>
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-zooft-light flex items-center justify-center mr-4">
-                    <Globe className="text-zooft-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Website</p>
-                    <p className="font-medium">www.zooftTechnologies.com</p>
-                  </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-white/80">Sunday</span>
+                  <span className="font-semibold text-white/60">Closed</span>
                 </div>
               </div>
-            </div>
-            
-            <div className="bg-gradient-to-r from-zooft-primary to-zooft-secondary p-8 rounded-2xl shadow-lg text-white">
-              <h3 className="text-2xl font-bold mb-4">Business Hours</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Monday - Friday:</span>
-                  <span className="font-medium">8:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday:</span>
-                  <span className="font-medium">9:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday:</span>
-                  <span className="font-medium">Closed</span>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
