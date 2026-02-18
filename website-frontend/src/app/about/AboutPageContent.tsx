@@ -18,11 +18,11 @@ import {
   Users,
   Award,
   Handshake,
-  Linkedin,
-  Mail,
   ArrowRight,
+  Quote,
+  Star,
 } from "lucide-react";
-import { companyInfo, teamMembers } from "@/data/content";
+import { companyInfo } from "@/data/content";
 import ImageWithFallback from "@/components/ImageWithFallback";
 
 const fadeUp = {
@@ -41,6 +41,51 @@ const stats = [
   { number: "20+", label: "Happy Clients" },
   { number: "10+", label: "Team Members" },
   { number: "98%", label: "Client Satisfaction" },
+];
+
+const testimonials = [
+  {
+    name: "Dr. Sarah Namakula",
+    role: "Medical Director, HealthBridge Clinic",
+    quote:
+      "Zooft Technologies built us a hospital management system that completely transformed our operations. Patient records, billing, and appointments — all streamlined into one secure platform.",
+    rating: 5,
+  },
+  {
+    name: "James Okello",
+    role: "CEO, Kubwa Logistics",
+    quote:
+      "Their team delivered a custom logistics platform on time and within budget. The attention to security and the AI-powered route optimization has saved us significant operational costs.",
+    rating: 5,
+  },
+  {
+    name: "Grace Atuhaire",
+    role: "Founder, StyleVault Uganda",
+    quote:
+      "The e-commerce platform Zooft built for us is beautiful, fast, and our customers love it. Sales increased by 40% within the first three months of launch.",
+    rating: 5,
+  },
+  {
+    name: "Peter Mugisha",
+    role: "IT Manager, Apex Law Chambers",
+    quote:
+      "We needed a case management system that was both powerful and easy to use. Zooft delivered exactly that — their consultancy approach helped us define requirements we hadn't even considered.",
+    rating: 5,
+  },
+  {
+    name: "Rebecca Nankya",
+    role: "Data Analyst, AgriTech Solutions",
+    quote:
+      "The analytics dashboard Zooft built gives us real-time insights into our farming data. It's intuitive, mobile-friendly, and has become essential to our daily decision-making.",
+    rating: 5,
+  },
+  {
+    name: "Daniel Ssemanda",
+    role: "Computer Science Student, Makerere University",
+    quote:
+      "Zooft's software development training program gave me hands-on skills I couldn't get in the classroom. I built my first full-stack project and landed an internship within weeks.",
+    rating: 5,
+  },
 ];
 
 export default function AboutPageContent() {
@@ -347,9 +392,9 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Testimonials */}
       <section
-        aria-labelledby="team-heading"
+        aria-labelledby="testimonials-heading"
         className="py-20 md:py-28 bg-gradient-to-b from-gray-50 via-gray-50 to-white overflow-hidden"
       >
         <div className="container mx-auto">
@@ -362,80 +407,60 @@ export default function AboutPageContent() {
             custom={0}
           >
             <span className="inline-block px-4 py-1.5 bg-zooft-primary/10 text-zooft-primary text-sm font-semibold rounded-full mb-4">
-              The People Behind Zooft
+              What Our Clients Say
             </span>
             <h2
-              id="team-heading"
+              id="testimonials-heading"
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              Meet Our <span className="gradient-text">Team</span>
+              Client <span className="gradient-text">Testimonials</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Passionate professionals dedicated to building exceptional
-              technology solutions for businesses across East Africa.
+              Hear from the businesses and individuals we&apos;ve had the
+              privilege of working with.
             </p>
           </motion.div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.id}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                custom={index}
-                whileHover={{ y: -4 }}
+        {/* Marquee Container */}
+        <div className="relative">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+
+          <div className="animate-marquee flex gap-6 w-max">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <div
+                key={`${t.name}-${i}`}
+                className="w-[340px] md:w-[400px] shrink-0 bg-white border border-gray-100 rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
               >
-                <Card className="group h-full bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] hover:border-zooft-primary/30 transition-all duration-300 ease-out text-center">
-                  <CardHeader className="pt-8 pb-3 items-center">
-                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-zooft-primary/20 to-zooft-secondary/20 p-1 mb-4">
-                      <div className="w-full h-full rounded-full overflow-hidden relative">
-                        <ImageWithFallback
-                          src={member.imageUrl}
-                          alt={`${member.name} - ${member.position} at Zooft Technologies`}
-                          fill
-                          sizes="112px"
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                    <CardTitle className="text-lg font-bold text-gray-900">
-                      {member.name}
-                    </CardTitle>
-                    <CardDescription className="text-zooft-primary font-semibold text-sm">
-                      {member.position}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pb-8">
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                      {member.bio}
-                    </p>
-                    <div className="flex justify-center gap-3">
-                      {member.socialLinks.linkedin && (
-                        <a
-                          href={member.socialLinks.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${member.name} on LinkedIn`}
-                          className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gradient-to-br hover:from-zooft-primary hover:to-zooft-secondary hover:text-white transition-all duration-300"
-                        >
-                          <Linkedin size={16} />
-                        </a>
-                      )}
-                      {member.socialLinks.email && (
-                        <a
-                          href={`mailto:${member.socialLinks.email}`}
-                          aria-label={`Email ${member.name}`}
-                          className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gradient-to-br hover:from-zooft-primary hover:to-zooft-secondary hover:text-white transition-all duration-300"
-                        >
-                          <Mail size={16} />
-                        </a>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                <Quote
+                  size={28}
+                  className="text-zooft-primary/20 mb-4"
+                />
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-2 mb-3">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star
+                      key={s}
+                      size={14}
+                      className={
+                        s < t.rating
+                          ? "text-yellow-400 fill-yellow-400"
+                          : "text-gray-200"
+                      }
+                    />
+                  ))}
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">
+                    {t.name}
+                  </p>
+                  <p className="text-gray-500 text-sm">{t.role}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
