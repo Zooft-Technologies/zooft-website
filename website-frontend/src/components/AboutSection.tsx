@@ -29,7 +29,7 @@ const AboutSection = () => {
       aria-labelledby="about-heading"
       className="py-20 md:py-28 bg-gradient-to-b from-gray-50 via-gray-50 to-white overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-10 lg:px-16">
+      <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Image Side */}
           <motion.div
