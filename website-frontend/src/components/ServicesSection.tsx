@@ -1,70 +1,142 @@
+"use client";
 
-import React from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Globe, BarChart, ShieldCheck, Cloud, Layers } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Code,
+  Globe,
+  CloudCog,
+  DatabaseZap,
+  ShieldCheck,
+  BrainCircuit,
+  type LucideIcon,
+} from "lucide-react";
 
-const services = [
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const, delay: i * 0.15 },
+  }),
+};
+
+interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const services: Service[] = [
   {
-    icon: <Code className="h-8 w-8 text-zooft-primary" />,
+    icon: Code,
     title: "Custom Software Development",
-    description: "Tailored software solutions designed to meet your unique business needs and challenges."
+    description:
+      "Purpose-built applications engineered around your workflows, from internal tools to customer-facing platforms that drive real business outcomes.",
   },
   {
-    icon: <Globe className="h-8 w-8 text-zooft-primary" />,
+    icon: Globe,
     title: "Web Application Development",
-    description: "Responsive and user-friendly web applications that deliver exceptional digital experiences."
+    description:
+      "High-performance web applications with modern architectures, responsive design, and seamless user experiences that keep your customers engaged.",
   },
   {
-    icon: <Cloud className="h-8 w-8 text-zooft-primary" />,
-    title: "Cloud Solutions",
-    description: "Secure and scalable cloud infrastructure to optimize your business operations."
+    icon: CloudCog,
+    title: "Cloud Infrastructure",
+    description:
+      "Secure, scalable cloud environments designed for reliability — from migration strategy to ongoing infrastructure management and optimization.",
   },
   {
-    icon: <BarChart className="h-8 w-8 text-zooft-primary" />,
-    title: "Data Analytics",
-    description: "Transform raw data into actionable insights to drive informed business decisions."
+    icon: DatabaseZap,
+    title: "Data Analytics & Insights",
+    description:
+      "Transform raw data into clear, actionable intelligence with dashboards, reporting pipelines, and analytics systems built for decision-makers.",
   },
   {
-    icon: <ShieldCheck className="h-8 w-8 text-zooft-primary" />,
-    title: "Cybersecurity",
-    description: "Comprehensive security solutions to protect your digital assets from evolving threats."
+    icon: ShieldCheck,
+    title: "Cybersecurity Solutions",
+    description:
+      "Proactive security strategies including threat monitoring, vulnerability assessments, and compliance frameworks that protect what matters most.",
   },
   {
-    icon: <Layers className="h-8 w-8 text-zooft-primary" />,
-    title: "AI agent Development",
-    description: "Innovative AI agents to automate processes and enhance customer interactions."
-  }
+    icon: BrainCircuit,
+    title: "AI Agent Development",
+    description:
+      "Intelligent AI agents and automation systems that streamline operations, enhance customer interactions, and unlock new capabilities.",
+  },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 md:py-24 bg-gray-50">
+    <section
+      id="services"
+      className="py-20 md:py-28 bg-gradient-to-b from-zooft-light/40 via-white to-zooft-light/20 hexagon-bg overflow-hidden"
+    >
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-16"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          custom={0}
+        >
+          <span className="inline-block px-4 py-1.5 bg-zooft-primary/10 text-zooft-primary text-sm font-semibold rounded-full mb-4">
+            What We Do
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Our <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            We offer a comprehensive range of technology solutions to help your business thrive in today's digital landscape.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            From custom-built software to secure cloud infrastructure and
+            intelligent AI systems — we deliver the technology that helps
+            businesses scale faster and operate smarter.
           </p>
-        </div>
-        
+        </motion.div>
+
+        {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="card-shadow overflow-hidden border-t-4 border-t-zooft-primary">
-              <CardHeader className="pb-2">
-                <div className="mb-4">
-                  {service.icon}
-                </div>
-                <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-700 text-base">
-                  {service.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                custom={index}
+                whileHover={{ y: -4 }}
+              >
+                <Card className="relative group h-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl overflow-hidden hover:border-zooft-primary/30 hover:shadow-xl transition-all duration-300 ease-out">
+                  {/* Gradient left accent bar */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-zooft-primary to-zooft-secondary rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  <CardHeader className="pb-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-zooft-primary/25 transition-shadow duration-300">
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-xl font-bold text-gray-900">
+                      {service.title}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <CardDescription className="text-gray-600 text-base leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
