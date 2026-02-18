@@ -39,7 +39,7 @@ const HeroSection = () => {
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24 hexagon-bg overflow-hidden">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Text Content */}
           <div className="w-full lg:w-1/2">
             <motion.h1
@@ -99,7 +99,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           >
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-full max-w-xl">
               <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary/5 to-zooft-secondary/5 rounded-3xl transform -rotate-3" />
 
               <div className="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 aspect-video">
