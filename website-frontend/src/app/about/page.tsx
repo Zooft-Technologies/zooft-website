@@ -27,7 +27,7 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-zooft-primary to-zooft-dark text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             About <span className="text-zooft-light">Zooft Technologies</span>
           </h1>
@@ -39,7 +39,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="border-l-4 border-zooft-primary">
               <CardHeader>
@@ -72,7 +72,7 @@ export default function AboutPage() {
 
       {/* Company Values */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="text-zooft-primary">Values</span>
@@ -106,7 +106,7 @@ export default function AboutPage() {
 
       {/* Company Stats */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="text-zooft-primary">Journey</span>
@@ -144,7 +144,7 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Meet Our <span className="text-zooft-primary">Team</span>
@@ -209,7 +209,7 @@ export default function AboutPage() {
 
       {/* Call to Action */}
       <section className="py-16 md:py-24 bg-zooft-primary text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Work with Us?
           </h2>

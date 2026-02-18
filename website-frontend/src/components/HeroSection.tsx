@@ -1,95 +1,166 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import Link from "next/link";
+
+const projectImages = [
+  "/images/projects/kubwa.jpg",
+  "/images/projects/hospital-system.jpg",
+  "/images/projects/medical-dashboard.jpg",
+  "/images/projects/wardrobe.jpg",
+  "/images/projects/law-system-visual.jpg",
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const, delay: i * 0.15 },
+  }),
+};
 
 const HeroSection = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
-  const [slideDirection, setSlideDirection] = useState('left');
-  
-  const projectImages = [
-    "/images/projects/kubwa.jpg",
-    "/images/projects/wardrobe.jpg"
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextImage = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % projectImages.length);
+  }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsSliding(true);
-      setSlideDirection('left'); // Always slide left when moving forward
-      
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => {
-          const nextIndex = (prevIndex + 1) % projectImages.length;
-          // If we're going from last to first, slide right
-          if (prevIndex === projectImages.length - 1 && nextIndex === 0) {
-            setSlideDirection('right');
-          }
-          return nextIndex;
-        });
-        setIsSliding(false);
-      }, 100); // Half of transition duration
-    }, 5000); // Change image every second
-
+    const interval = setInterval(nextImage, 4000);
     return () => clearInterval(interval);
-  }, [projectImages.length]);
+  }, [nextImage]);
+
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 hexagon-bg">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="gradient-text">Transforming</span> Ideas into <span className="gradient-text">Digital Reality</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
-              Zooft Technologies provides innovative tech solutions to help businesses thrive in the digital era. 
-              <span className="block mt-2 font-medium italic text-zooft-dark">The better way to do it.</span>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-zooft-primary hover:bg-zooft-dark text-white px-8 py-6 text-lg">
-                <a href="#services" className="flex items-center">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 hexagon-bg overflow-hidden">
+      <div className="container mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
+          {/* Text Content */}
+          <div className="w-full lg:w-1/2">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0}
+            >
+              <span className="gradient-text">Transforming</span> Ideas into{" "}
+              <span className="gradient-text">Digital Reality</span>
+            </motion.h1>
+
+            <motion.p
+              className="text-lg md:text-xl text-gray-700 mb-8"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+            >
+              We build custom software, secure cloud infrastructure, and
+              intelligent digital systems that help businesses scale faster
+              and operate smarter.
+              <span className="block mt-2 font-medium italic text-zooft-dark">
+                The better way to do it.
+              </span>
+            </motion.p>
+
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+            >
+              <Button
+                className="bg-zooft-primary hover:bg-zooft-dark text-white px-8 py-6 text-lg"
+                asChild
+              >
+                <Link href="/services" className="flex items-center">
                   Our Services <ArrowRight className="ml-2" size={18} />
-                </a>
+                </Link>
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-zooft-primary text-zooft-primary hover:bg-zooft-light px-8 py-6 text-lg">
-                <a href="#contact">
-                  Contact Us
-                </a>
+              <Button
+                variant="outline"
+                className="border-zooft-primary text-zooft-primary hover:bg-zooft-light px-8 py-6 text-lg"
+                asChild
+              >
+                <Link href="/contact">Contact Us</Link>
               </Button>
-            </div>
+            </motion.div>
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end animate-slide-in">
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary to-zooft-secondary opacity-20 rounded-3xl transform -rotate-3"></div>
-              <ImageWithFallback
-                src={projectImages[currentImageIndex]}
-                alt="Tech Solutions"
-                width={800}
-                height={600}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-                className={`rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 z-10 relative ${
-                  isSliding
-                    ? slideDirection === 'left'
-                      ? 'translate-x-full opacity-0'
-                      : '-translate-x-full opacity-0'
-                    : 'translate-x-0 opacity-100'
-                }`}
-              />
-              <div className="absolute -bottom-6 -right-6 p-4 bg-white rounded-xl shadow-lg z-20">
+
+          {/* Image Carousel */}
+          <motion.div
+            className="w-full lg:w-1/2 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          >
+            <div className="relative w-full max-w-xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-zooft-primary/5 to-zooft-secondary/5 rounded-3xl transform -rotate-3" />
+
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 aspect-video">
+                <AnimatePresence initial={false}>
+                  <motion.div
+                    key={currentIndex}
+                    className="absolute inset-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" as const }}
+                  >
+                    <ImageWithFallback
+                      src={projectImages[currentIndex]}
+                      alt="Zooft Technologies"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Progress Dots */}
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {projectImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                    className="group p-1"
+                  >
+                    <motion.div
+                      className="h-2 rounded-full bg-zooft-primary"
+                      animate={{ width: i === currentIndex ? 24 : 8 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ opacity: i === currentIndex ? 1 : 0.3 }}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Stats Badge */}
+              <motion.div
+                className="absolute -bottom-6 -right-6 p-4 bg-white rounded-xl shadow-lg z-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.5 }}
+              >
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-zooft-primary"></div>
+                  <div className="w-3 h-3 rounded-full bg-zooft-primary" />
                   <p className="font-semibold text-gray-800">
-                    <span className="text-zooft-primary">100+</span> Projects Delivered
+                    <span className="text-zooft-primary">25+</span> Projects
+                    Delivered
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

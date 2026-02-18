@@ -26,7 +26,7 @@ export default function ServicesPage() {
     <>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-zooft-primary to-zooft-dark text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Our <span className="text-zooft-light">Services</span>
           </h1>
@@ -39,7 +39,7 @@ export default function ServicesPage() {
 
       {/* Services Grid */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {services.map((service) => (
               <Card
@@ -116,7 +116,7 @@ export default function ServicesPage() {
 
       {/* Process Section */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="text-zooft-primary">Process</span>
@@ -156,7 +156,7 @@ export default function ServicesPage() {
 
       {/* Technologies Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Technologies We <span className="text-zooft-primary">Use</span>
@@ -189,7 +189,7 @@ export default function ServicesPage() {
 
       {/* Call to Action */}
       <section className="py-16 md:py-24 bg-zooft-primary text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Get Started?
           </h2>

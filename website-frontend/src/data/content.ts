@@ -219,9 +219,11 @@ export const companyInfo = {
   ],
   contact: {
     email: 'contact@zoofttechnologies.com',
-    phone: '+2560776546326/0709105749',
-    whatsapp: '+2560776546326',
-    address: 'P.O.BOX 202097,NAKAWA UG'
+    phone: '+256773252651',
+    phone2: '+256709105749',
+    whatsapp: '+256773252651',
+    address: 'Nakawa, Kampala, Uganda',
+    website: 'www.zoofttechnologies.com'
   },
   social: {
     twitter: 'https://x.com/Zoofttech',

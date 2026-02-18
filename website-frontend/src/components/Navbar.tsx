@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed w-full top-0 bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="container mx-auto py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <div className="mr-2">
             <ZooftLogo />
@@ -72,7 +72,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <div className="container mx-auto py-4 flex flex-col space-y-4">
             <Link
               href="/" 
               className={linkClass("/")}

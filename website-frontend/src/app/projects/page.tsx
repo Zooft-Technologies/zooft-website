@@ -27,7 +27,7 @@ export default function ProjectsPage() {
     <>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-zooft-primary to-zooft-dark text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Our <span className="text-zooft-light">Projects</span>
           </h1>
@@ -40,7 +40,7 @@ export default function ProjectsPage() {
 
       {/* Projects Grid */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <Card
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
 
       {/* Project Categories */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Project <span className="text-zooft-primary">Categories</span>
@@ -150,7 +150,7 @@ export default function ProjectsPage() {
 
       {/* Success Metrics */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Project <span className="text-zooft-primary">Success</span>
@@ -171,7 +171,7 @@ export default function ProjectsPage() {
 
       {/* Call to Action */}
       <section className="py-16 md:py-24 bg-zooft-primary text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Start Your Next Project
           </h2>
