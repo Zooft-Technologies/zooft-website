@@ -38,37 +38,37 @@ const services: Service[] = [
     icon: Code,
     title: "Custom Software Development",
     description:
-      "Purpose-built applications engineered around your workflows, from internal tools to customer-facing platforms that drive real business outcomes.",
+      "Purpose-built, security-first applications engineered around your workflows — from internal tools to AI-powered customer-facing platforms that drive real business outcomes.",
   },
   {
     icon: Globe,
     title: "Web Application Development",
     description:
-      "High-performance web applications with modern architectures, responsive design, and seamless user experiences that keep your customers engaged.",
+      "High-performance web applications built with modern architectures, secure coding practices, and AI integrations that deliver seamless, intelligent user experiences.",
   },
   {
     icon: DatabaseZap,
     title: "Data Analytics & Insights",
     description:
-      "Transform raw data into clear, actionable intelligence with dashboards, reporting pipelines, and analytics systems built for decision-makers.",
+      "Transform raw data into clear, actionable intelligence with AI-driven dashboards, automated reporting pipelines, and analytics systems built for decision-makers.",
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
     description:
-      "Native and cross-platform mobile applications with intuitive interfaces, offline capabilities, and seamless performance across iOS and Android.",
+      "Native and cross-platform mobile applications with intuitive interfaces, built-in security layers, and smart AI features that perform seamlessly across iOS and Android.",
   },
   {
     icon: MessagesSquare,
     title: "IT Consultancy",
     description:
-      "Strategic technology guidance to align your IT investments with business goals — from system architecture reviews to digital transformation roadmaps.",
+      "Strategic technology guidance to align your IT investments with business goals — from security audits and system architecture reviews to AI adoption and digital transformation roadmaps.",
   },
   {
     icon: GraduationCap,
     title: "Software Development Training",
     description:
-      "Hands-on training programs for tech students and enthusiasts — from beginner fundamentals to advanced development practices that prepare the next generation of builders.",
+      "Hands-on training programs for tech students and enthusiasts — from beginner fundamentals to advanced development practices, secure coding, and AI-powered tooling.",
   },
 ];
 
@@ -115,13 +115,10 @@ const ServicesSection = () => {
                 custom={index}
                 whileHover={{ y: -4 }}
               >
-                <Card className="relative group h-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl overflow-hidden hover:border-zooft-primary/30 hover:shadow-xl transition-all duration-300 ease-out">
-                  {/* Gradient left accent bar */}
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-zooft-primary to-zooft-secondary rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <CardHeader className="pb-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-zooft-primary/25 transition-shadow duration-300">
-                      <Icon className="h-6 w-6 text-white" />
+                <Card className="group h-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-zooft-primary/30 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-all duration-300 ease-out text-center">
+                  <CardHeader className="pb-3 items-center">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-zooft-primary/25 transition-shadow duration-300">
+                      <Icon className="h-7 w-7 text-white" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {service.title}
