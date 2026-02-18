@@ -154,7 +154,7 @@ const HeroSection = () => {
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 rounded-full bg-zooft-primary" />
                   <p className="font-semibold text-gray-800">
-                    <span className="text-zooft-primary">100+</span> Projects
+                    <span className="text-zooft-primary">25+</span> Projects
                     Delivered
                   </p>
                 </div>
