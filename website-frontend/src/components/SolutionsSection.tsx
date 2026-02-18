@@ -79,7 +79,7 @@ const SolutionsSection = () => {
           <Button
             size="lg"
             variant="outline"
-            className="border-white/40 text-white hover:bg-white/10 px-8 py-6 text-lg"
+            className="border-white bg-white/10 text-white hover:bg-white hover:text-zooft-primary px-8 py-6 text-lg"
             asChild
           >
             <Link href="/services">Explore Our Services</Link>
