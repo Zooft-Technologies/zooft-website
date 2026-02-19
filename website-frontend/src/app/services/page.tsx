@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { services } from "@/data/content";
 import ServicesPageContent from "./ServicesPageContent";
 
 export const metadata: Metadata = {
@@ -16,6 +17,36 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Zooft Technologies Services",
+  description:
+    "Custom software development, web and mobile applications, data analytics, IT consultancy, and developer training.",
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      url: `https://zoofttechnologies.com/services/${service.id}`,
+      provider: {
+        "@type": "Organization",
+        name: "Zooft Technologies",
+      },
+    },
+  })),
+};
+
 export default function ServicesPage() {
-  return <ServicesPageContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ServicesPageContent />
+    </>
+  );
 }

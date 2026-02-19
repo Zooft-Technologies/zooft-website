@@ -24,15 +24,7 @@ import {
 } from "lucide-react";
 import { companyInfo } from "@/data/content";
 import ImageWithFallback from "@/components/ImageWithFallback";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const, delay: i * 0.12 },
-  }),
-};
+import { fadeUp } from "@/lib/animations";
 
 const valueIcons = [Lightbulb, ShieldCheck, Users, Award, Handshake];
 

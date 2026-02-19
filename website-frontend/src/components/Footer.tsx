@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { companyInfo } from "@/data/content";
+import { fadeUp } from "@/lib/animations";
 
 const TikTokIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -120,15 +121,6 @@ const ZooftLogoWhite = () => (
     />
   </svg>
 );
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const, delay: i * 0.1 },
-  }),
-};
 
 const quickLinks = [
   { label: "Home", href: "/" },

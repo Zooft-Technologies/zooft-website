@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ImageWithFallback from "@/components/ImageWithFallback";
 import Link from "next/link";
+import { fadeUp } from "@/lib/animations";
 
 const projectImages = [
   "/images/projects/kubwa.jpg",
@@ -14,15 +15,6 @@ const projectImages = [
   "/images/projects/wardrobe.jpg",
   "/images/projects/law-system-visual.jpg",
 ];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const, delay: i * 0.15 },
-  }),
-};
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

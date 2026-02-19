@@ -74,14 +74,5 @@ export interface ApiResponse<T> {
   error?: string;
 }
 
-// Form Validation Types
-export interface ValidationError {
-  field: string;
-  message: string;
-}
-
-export interface FormState {
-  isSubmitting: boolean;
-  errors: ValidationError[];
-  success: boolean;
-}
+// ValidationError is an alias for FormError (used by validation service)
+export type ValidationError = FormError;

@@ -17,15 +17,7 @@ import {
   GraduationCap,
   type LucideIcon,
 } from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const, delay: i * 0.15 },
-  }),
-};
+import { fadeUp } from "@/lib/animations";
 
 interface Service {
   icon: LucideIcon;
