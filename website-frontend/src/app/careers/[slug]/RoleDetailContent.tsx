@@ -420,7 +420,7 @@ export default function RoleDetailContent({ slug }: { slug: string }) {
       "@type": "Organization",
       name: "Zooft Technologies",
       sameAs: "https://zoofttechnologies.com",
-      logo: "https://zoofttechnologies.com/images/logo.png",
+      logo: "/images/zooft logo.png",
     },
     jobLocation: {
       "@type": "Place",

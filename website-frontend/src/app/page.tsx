@@ -16,7 +16,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "Zooft Technologies",
   url: "https://zoofttechnologies.com",
-  logo: "https://zoofttechnologies.com/favicon.ico",
+  logo: "/images/zooft logo.png",
   description:
     "Zooft Technologies builds secure, AI-powered software solutions — custom web and mobile apps, data analytics, IT consultancy, and developer training in Uganda and East Africa.",
   foundingDate: "2025",
