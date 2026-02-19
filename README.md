@@ -25,14 +25,30 @@ website-frontend/
 │   │   ├── globals.css         # Global styles & Tailwind
 │   │   ├── sitemap.ts          # Dynamic sitemap generation
 │   │   ├── robots.ts           # Dynamic robots.txt
+│   │   ├── error.tsx           # Error boundary
 │   │   ├── not-found.tsx       # 404 page
-│   │   ├── about/page.tsx
-│   │   ├── services/page.tsx
-│   │   ├── projects/page.tsx
-│   │   ├── blog/page.tsx
-│   │   ├── contact/page.tsx
+│   │   ├── about/
+│   │   │   ├── page.tsx
+│   │   │   └── AboutPageContent.tsx
+│   │   ├── services/
+│   │   │   ├── page.tsx
+│   │   │   ├── ServicesPageContent.tsx
+│   │   │   └── [slug]/
+│   │   │       ├── page.tsx
+│   │   │       └── ServiceDetailContent.tsx
+│   │   ├── careers/
+│   │   │   ├── page.tsx
+│   │   │   ├── CareersPageContent.tsx
+│   │   │   ├── roles-data.ts   # Career roles data
+│   │   │   └── [slug]/
+│   │   │       ├── page.tsx
+│   │   │       └── RoleDetailContent.tsx
+│   │   ├── contact/
+│   │   │   ├── page.tsx
+│   │   │   └── ContactPageContent.tsx
 │   │   └── api/
-│   │       └── send-email/route.ts   # Contact form API endpoint
+│   │       └── send-email/
+│   │           └── route.ts    # Contact form API endpoint
 │   ├── components/             # Reusable components
 │   │   ├── Navbar.tsx
 │   │   ├── Footer.tsx
@@ -40,18 +56,42 @@ website-frontend/
 │   │   ├── ServicesSection.tsx
 │   │   ├── AboutSection.tsx
 │   │   ├── ContactSection.tsx
+│   │   ├── SolutionsSection.tsx
+│   │   ├── TechLogos.tsx       # Technology stack logos
+│   │   ├── ImageWithFallback.tsx
 │   │   └── ui/                 # shadcn/ui components
-│   ├── data/                   # Static content data
-│   ├── hooks/                  # Custom React hooks
-│   ├── lib/                    # Utility functions
-│   ├── services/               # API service layer
-│   ├── types/                  # TypeScript type definitions
-│   └── utils/                  # Validation and helpers
-├── public/                     # Static assets (images, fonts)
+│   │       ├── accordion.tsx
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── input.tsx
+│   │       ├── textarea.tsx
+│   │       ├── toast.tsx
+│   │       └── toaster.tsx
+│   ├── data/
+│   │   └── content.ts          # Static company content data
+│   ├── hooks/
+│   │   └── use-toast.ts        # Toast notification hook
+│   ├── lib/
+│   │   ├── animations.ts       # Framer Motion animations
+│   │   └── utils.ts            # Utility functions
+│   ├── services/
+│   │   └── emailService.ts     # Email service layer
+│   ├── types/
+│   │   └── index.ts            # TypeScript type definitions
+│   └── utils/
+│       └── validation.ts       # Form validation helpers
+├── public/                     # Static assets
+│   └── images/
+│       ├── zooft logo.png      # Brand logo (optimized)
+│       ├── projects/           # Project images
+│       └── team/               # Team member photos
 ├── next.config.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
-└── firebase.json               # Firebase hosting config
+├── components.json             # shadcn/ui config
+├── postcss.config.mjs
+├── firebase.json               # Firebase hosting config
+└── apphosting.yaml             # Firebase App Hosting config
 ```
 
 ## Getting Started
@@ -88,6 +128,26 @@ npm start
 ```bash
 npm run lint
 ```
+
+## Assets & Images
+
+### Logo
+
+The Zooft Technologies logo is stored as an optimized PNG image at:
+```
+public/images/zooft logo.png
+```
+
+The logo is used throughout the application in:
+- **Navbar** (`src/components/Navbar.tsx`) - Primary navigation
+- **Footer** (`src/components/Footer.tsx`) - Site footer
+- **Schema Markup** - JSON-LD structured data for SEO
+
+The logo is served using Next.js Image component for automatic optimization, including:
+- Responsive sizing
+- Modern image format conversion (WebP when supported)
+- Lazy loading (except in Navbar where `priority` is set for above-the-fold rendering)
+- Automatic CDN caching
 
 ## SEO
 

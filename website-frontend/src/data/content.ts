@@ -1,4 +1,4 @@
-import { Service, BlogPost, TeamMember, Project } from '@/types';
+import { Service, TeamMember } from '@/types';
 
 export const services: Service[] = [
   {
@@ -195,42 +195,6 @@ export const services: Service[] = [
   }
 ];
 
-export const blogPosts: BlogPost[] = [
-  {
-    id: 'digital-transformation-guide',
-    title: 'The Complete Guide to Digital Transformation for Uganda Businesses',
-    excerpt: 'Learn how Ugandan businesses can leverage technology to compete globally while addressing local market challenges.',
-    content: '',
-    author: 'Zooft Technologies Team',
-    publishDate: '2025-08-15',
-    category: 'business',
-    imageUrl: '/images/blog/digital-transformation.jpg',
-    readTime: 8
-  },
-  {
-    id: 'cybersecurity-best-practices',
-    title: 'Essential Cybersecurity Practices for Small and Medium Enterprises',
-    excerpt: 'Protect your business from cyber threats with these practical security measures tailored for SMEs.',
-    content: '',
-    author: 'Zooft Technologies Team',
-    publishDate: '2025-08-10',
-    category: 'cybersecurity',
-    imageUrl: '/images/blog/cybersecurity.jpg',
-    readTime: 6
-  },
-  {
-    id: 'cloud-migration-benefits',
-    title: 'Why Cloud Migration is Essential for Modern Businesses',
-    excerpt: 'Discover the benefits of moving to the cloud and how it can transform your business operations.',
-    content: '',
-    author: 'Zooft Technologies Team',
-    publishDate: '2025-08-05',
-    category: 'technology',
-    imageUrl: '/images/blog/cloud-migration.jpg',
-    readTime: 7
-  }
-];
-
 export const teamMembers: TeamMember[] = [
   {
     id: 'ceo',
@@ -285,36 +249,6 @@ export const teamMembers: TeamMember[] = [
       linkedin: 'https://www.linkedin.com/in/fred-sseginda-4822b6236/',
       email: 'henry@zoofttechnologies.com'
     }
-  }
-];
-
-export const projects: Project[] = [
-  {
-    id: 'ecommerce-platform',
-    title: 'E-Commerce Platform',
-    description: 'Comprehensive online marketplace solution with payment integration and inventory management.',
-    category: 'E-Commerce',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
-    imageUrl: '/images/projects/kubwa.jpg',
-    completedDate: '2025-07-15'
-  },
-  {
-    id: 'hospital-management',
-    title: 'Hospital Management System',
-    description: 'Complete healthcare management solution including patient records, appointments, and billing.',
-    category: 'Healthcare',
-    technologies: ['Vue.js', 'Python', 'PostgreSQL', 'Docker'],
-    imageUrl: '/images/projects/hospital.jpg',
-    completedDate: '2025-06-20'
-  },
-  {
-    id: 'inventory-system',
-    title: 'Inventory Management System',
-    description: 'Real-time inventory tracking and management system for retail businesses.',
-    category: 'Retail',
-    technologies: ['Angular', 'Java', 'MySQL', 'AWS'],
-    imageUrl: '/images/projects/wardrobe.jpg',
-    completedDate: '2025-05-10'
   }
 ];
 
