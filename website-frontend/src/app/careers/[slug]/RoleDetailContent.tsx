@@ -20,6 +20,11 @@ import {
   Clock,
   Heart,
   Sprout,
+  Rocket,
+  Award,
+  Handshake,
+  Star,
+  BookOpen,
   type LucideIcon,
 } from "lucide-react";
 
@@ -304,9 +309,9 @@ export const roles: Role[] = [
     icon: GraduationCap,
     title: "Internships & Training",
     metaDescription:
-      "Apply for remote internships and training programs at Zooft Technologies. Learn software development, data science, AI, design, project management, and more — from anywhere.",
+      "Apply for remote internships and training programs at Zooft Technologies. Learn software development, data science, AI, design, project management, and more — hands-on, from anywhere.",
     description:
-      "Our internship and training program is designed for students, recent graduates, career switchers, and anyone with a genuine desire to learn. This is not a \"fetch coffee\" internship — you will work on real projects alongside our team, receive mentorship, and build skills that matter in the job market. The program is fully remote because we believe the future of work is remote, and learning to collaborate effectively across distances is itself a valuable skill.",
+      "Our internship and training program is a structured, hands-on learning experience designed for students, recent graduates, career switchers, and anyone with a genuine desire to build real tech skills. You will learn from novice to expert level throughout the duration of your training, working on real personal and group projects alongside our senior team. This is not passive learning — you will write code, design interfaces, analyse data, and build things that work. The program is fully remote because we believe the future of work is remote, and learning to collaborate effectively across distances is itself a valuable skill you will carry for life.",
     hiring: true,
     openRoles: -1,
     isInternship: true,
@@ -322,12 +327,13 @@ export const roles: Role[] = [
       "Cloud & DevOps (AWS basics, Docker, CI/CD pipelines, version control with Git)",
     ],
     responsibilities: [
-      "Complete hands-on learning modules and real project assignments",
+      "Progress from novice to expert through structured, hands-on learning modules",
+      "Work on real personal and group projects — not hypothetical exercises",
+      "Develop your own ideated project from zero to finish with guidance from Zooft seniors (imagine building your own e-commerce platform, portfolio site, or data dashboard — that is what we mean)",
+      "Acquire professional communication and collaboration skills through daily remote teamwork",
       "Participate in team standups, code reviews, and feedback sessions",
-      "Build portfolio-worthy projects under mentorship from senior team members",
-      "Collaborate remotely using modern tools (Slack, GitHub, Figma, Notion)",
       "Present your work and progress to the team in regular showcase sessions",
-      "Contribute to actual client projects under supervision as you advance",
+      "Collaborate remotely using modern industry tools (Slack, GitHub, Figma, Notion)",
     ],
     skills: [
       "A genuine desire to learn and willingness to put in the work",
@@ -343,7 +349,7 @@ export const roles: Role[] = [
       "Previous volunteer or community involvement in tech",
     ],
     applyNote:
-      "Our internship program is always open for applications. Fill out the application form and our team will review your submission and get back to you within two weeks.",
+      "Our internship program is always open for applications. Training fees range from UGX 150,000 to 500,000 depending on the internship period and area of study. Apply through our form and we will get back to you for a detailed discussion regarding the internship and training.",
   },
 ];
 
@@ -363,6 +369,49 @@ const perks = [
   {
     icon: Sprout,
     text: "Paid time off and vacation days",
+  },
+];
+
+const internshipBenefits = [
+  {
+    icon: Rocket,
+    title: "Novice to Expert",
+    text: "Structured learning that takes you from the basics all the way to expert-level skills in your chosen track",
+  },
+  {
+    icon: Code,
+    title: "Real Projects, Real Portfolio",
+    text: "Work on personal and group projects — build things you can show employers, like your own e-commerce platform or data dashboard",
+  },
+  {
+    icon: BookOpen,
+    title: "Your Own Innovation",
+    text: "Develop your own ideated project from zero to finish with support and guidance from Zooft seniors — this could be a life-changing innovation",
+  },
+  {
+    icon: Handshake,
+    title: "Communication & Collaboration",
+    text: "Gain professional communication and teamwork skills through daily remote collaboration using industry tools",
+  },
+  {
+    icon: Star,
+    title: "Full-Time Job Opportunity",
+    text: "Outstanding interns get the chance to land a full-time role at Zooft Technologies after completing the program",
+  },
+  {
+    icon: Award,
+    title: "Strong Recommendations",
+    text: "Receive strong professional recommendations from Zooft to any company of your choice when you complete the programme",
+  },
+  {
+    icon: GraduationCap,
+    title: "Academic Coordination",
+    text: "We coordinate with your university, institute, or school administration to ensure smooth internships for students doing academic placements",
+  },
+  {
+    icon: Globe,
+    title: "Remote-First Experience",
+    text: "Learn to work remotely from day one — the future of work is remote, and the earlier you embrace it, the better positioned you are",
   },
 ];
 
@@ -618,6 +667,45 @@ export default function RoleDetailContent({ slug }: { slug: string }) {
                   ))}
                 </ul>
               </motion.div>
+
+              {/* Internship Benefits */}
+              {role.isInternship && (
+                <motion.div
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  custom={0}
+                >
+                  <h2 className="text-2xl font-bold mb-6">
+                    What You Will Gain
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {internshipBenefits.map((benefit, idx) => {
+                      const BenefitIcon = benefit.icon;
+                      return (
+                        <div
+                          key={idx}
+                          className="bg-gray-50 rounded-xl p-5 border border-gray-100"
+                        >
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-zooft-primary to-zooft-secondary flex items-center justify-center mb-3">
+                            <BenefitIcon
+                              size={18}
+                              className="text-white"
+                            />
+                          </div>
+                          <h3 className="font-bold text-gray-900 mb-1 text-sm">
+                            {benefit.title}
+                          </h3>
+                          <p className="text-gray-500 text-xs leading-relaxed">
+                            {benefit.text}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -640,18 +728,32 @@ export default function RoleDetailContent({ slug }: { slug: string }) {
                     </p>
 
                     {role.isInternship ? (
-                      <Button
-                        className="w-full bg-zooft-primary hover:bg-zooft-dark text-white h-12 rounded-xl font-semibold mb-3"
-                        asChild
-                      >
-                        <Link
-                          href="/contact"
-                          className="flex items-center justify-center gap-2"
+                      <>
+                        <Button
+                          className="w-full bg-zooft-primary hover:bg-zooft-dark text-white h-12 rounded-xl font-semibold mb-3"
+                          asChild
                         >
-                          Apply for Internship
-                          <ArrowRight size={16} />
-                        </Link>
-                      </Button>
+                          <a
+                            href="https://forms.gle/8gJgGx97GH4pTKWE7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            Apply for Internship
+                            <ArrowRight size={16} />
+                          </a>
+                        </Button>
+                        <div className="bg-zooft-light/50 rounded-lg p-3 mb-3">
+                          <p className="text-xs text-gray-600 text-center leading-relaxed">
+                            Training fees:{" "}
+                            <span className="font-semibold text-gray-800">
+                              UGX 150,000 — 500,000
+                            </span>
+                            <br />
+                            depending on period & area of study
+                          </p>
+                        </div>
+                      </>
                     ) : role.hiring ? (
                       <Button
                         className="w-full bg-zooft-primary hover:bg-zooft-dark text-white h-12 rounded-xl font-semibold mb-3"

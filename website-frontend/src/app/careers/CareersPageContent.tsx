@@ -470,24 +470,33 @@ export default function CareersPageContent() {
               custom={0}
             >
               <span className="inline-block px-4 py-1.5 bg-zooft-primary/10 text-zooft-primary text-sm font-semibold rounded-full mb-4">
-                For Students & Enthusiasts
+                For Students & Tech Enthusiasts
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Remote <span className="gradient-text">Internships</span> &
                 Training
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                Whether you are a university student, a self-taught learner, or
-                someone looking to switch careers — our remote internship
-                program gives you real-world experience working alongside our
-                engineering and design teams.
+                Go from novice to expert with hands-on, project-based training
+                led by our senior team. Whether you are a university student
+                completing an academic placement, a self-taught learner, or
+                someone switching careers — this program is designed to give you
+                real skills, a real portfolio, and a real head start.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                We offer hands-on training across multiple tracks: software
-                development, graphics design, project management, data science,
-                AI & machine learning, Microsoft Office Suite, and more. You
-                will work on real projects, receive mentorship, and build a
-                portfolio that matters.
+              <p className="text-gray-600 leading-relaxed mb-3">
+                Imagine building your own fully functional e-commerce platform,
+                a data dashboard, or a mobile app — from zero to finish — with
+                guidance every step of the way. That is the kind of
+                life-changing project you will work on here.
+              </p>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                Training fees range from{" "}
+                <span className="font-semibold text-gray-700">
+                  UGX 150,000 to 500,000
+                </span>{" "}
+                depending on the internship period and area of study. Apply
+                through our form and we will get back to you for a detailed
+                discussion.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {[
@@ -499,6 +508,7 @@ export default function CareersPageContent() {
                   "Microsoft Office",
                   "UI/UX Design",
                   "Digital Marketing",
+                  "Cloud & DevOps",
                 ].map((track) => (
                   <span
                     key={track}
@@ -513,12 +523,26 @@ export default function CareersPageContent() {
                   className="bg-zooft-primary hover:bg-zooft-dark text-white px-6"
                   asChild
                 >
+                  <a
+                    href="https://forms.gle/8gJgGx97GH4pTKWE7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center"
+                  >
+                    Apply Now{" "}
+                    <ArrowRight className="ml-2" size={16} />
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-zooft-primary/30 text-zooft-primary hover:bg-zooft-primary hover:text-white px-6"
+                  asChild
+                >
                   <Link
                     href="/careers/internships-and-training"
                     className="flex items-center"
                   >
-                    Learn More{" "}
-                    <ArrowRight className="ml-2" size={16} />
+                    Learn More
                   </Link>
                 </Button>
               </div>
