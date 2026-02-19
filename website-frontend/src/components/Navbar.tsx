@@ -44,6 +44,9 @@ const Navbar = () => {
           <Link href="/services" className={linkClass("/services")}>
             Services
           </Link>
+          <Link href="/careers" className={linkClass("/careers")}>
+            Careers
+          </Link>
           <Link href="/contact" className={linkClass("/contact")}>
             Contact
           </Link>
@@ -87,6 +90,13 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Services
+            </Link>
+            <Link
+              href="/careers"
+              className={linkClass("/careers")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Careers
             </Link>
             <Link
               href="/contact"
