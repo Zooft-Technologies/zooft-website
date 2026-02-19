@@ -304,7 +304,7 @@ export const projects: Project[] = [
     description: 'Complete healthcare management solution including patient records, appointments, and billing.',
     category: 'Healthcare',
     technologies: ['Vue.js', 'Python', 'PostgreSQL', 'Docker'],
-    imageUrl: '/images/projects/hospital.jpg',
+    imageUrl: '/images/projects/hospital-system.jpg',
     completedDate: '2025-06-20'
   },
   {
