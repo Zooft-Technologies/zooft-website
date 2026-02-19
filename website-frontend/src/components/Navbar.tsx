@@ -44,12 +44,6 @@ const Navbar = () => {
           <Link href="/services" className={linkClass("/services")}>
             Services
           </Link>
-          <Link href="/projects" className={linkClass("/projects")}>
-            Projects
-          </Link>
-          <Link href="/blog" className={linkClass("/blog")}>
-            Blog
-          </Link>
           <Link href="/contact" className={linkClass("/contact")}>
             Contact
           </Link>
@@ -88,28 +82,14 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              href="/services" 
+              href="/services"
               className={linkClass("/services")}
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
-              href="/projects" 
-              className={linkClass("/projects")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/blog" 
-              className={linkClass("/blog")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact" 
+              href="/contact"
               className={linkClass("/contact")}
               onClick={() => setIsMenuOpen(false)}
             >

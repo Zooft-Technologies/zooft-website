@@ -52,19 +52,6 @@ export interface Service {
   faqs: ServiceFAQ[];
 }
 
-// Blog Post Types
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  publishDate: string;
-  category: 'technology' | 'business' | 'innovation' | 'cybersecurity';
-  imageUrl: string;
-  readTime: number;
-}
-
 // Team Member Types
 export interface TeamMember {
   id: string;
@@ -77,18 +64,6 @@ export interface TeamMember {
     twitter?: string;
     email?: string;
   };
-}
-
-// Project Types
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  technologies: string[];
-  imageUrl: string;
-  projectUrl?: string;
-  completedDate: string;
 }
 
 // API Response Types
