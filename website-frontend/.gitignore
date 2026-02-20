@@ -9,6 +9,14 @@ out/
 build/
 dist/
 
+# Vercel
+.vercel/
+.vercel
+
+# Firebase (no longer needed)
+.firebase/
+.firebaserc
+
 # Environment variables
 .env
 .env.local
@@ -18,6 +26,8 @@ dist/
 
 # Debug logs
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
